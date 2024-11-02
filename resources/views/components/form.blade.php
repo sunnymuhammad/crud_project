@@ -5,16 +5,26 @@
         @csrf
         <label for="fname" class="block text-gray-700 font-semibold">Your First Name</label>
         <input type="text" name="fname" id="fname" class="border border-gray-800 w-full sm:w-[300px] md:w-[500px] lg:w-[700px]  rounded-md p-2">
+         @error('fname')
+         <div> {{$message}} </div>
+         @enderror
 
 
         <label for="lname" class="block text-gray-700 font-semibold">Your Last Name</label>
         <input type="text" name="lname" id="lname" class="border border-gray-400 w-full sm:w-[300px] md:w-[500px] lg:w-[700px] rounded-md p-2">
 
+
         <label for="email" class="block text-gray-700 font-semibold">Your Email Address</label>
         <input type="email" name="email" id="email" class="border border-gray-400 w-full sm:w-[300px] md:w-[500px] lg:w-[700px] rounded-md p-2">
+        @error('email')
+        <div> {{$message}} </div>
+        @enderror
 
         <label for="password" class="block text-gray-700 font-semibold">Your Password</label>
         <input type="password" name="password" id="password" class="border border-gray-400 w-full sm:w-[300px] md:w-[500px] lg:w-[700px] rounded-md p-2">
+        @error('password')
+        <div> {{$message}} </div>
+        @enderror
 
         <button class="block bg-green-500 px-2 py-1 rounded-sm">Create</button>
     </form>

@@ -22,21 +22,11 @@ class CrudController extends Controller
             'email'=>'required|email',
              'password'=>'required|numeric'
 
-        ],[
-            'fname.required'=>'Name is requied',
-            'email.required'=>'Email is required',
-            'Password.required'=>'Password is required'
         ]
     );
 
-
-    DB::table('users')->insert(
-        ['fname'=>$request->input('fname'),
-                  'lname'=>$request->input('lname'),
-                  'email'=>$request->input('email'),
-                  'password' => $request->input('password')
-                ]
-    );
+    $data=$request->only(['fname','lname','email','password']);
+    DB::table('users')->insert($data);
     return redirect('home');
    }
 
